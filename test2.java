@@ -11,8 +11,10 @@ public class test2 {
         // TreeMaps are ordered unlike HashMaps but require more system resources
         TreeMap<Integer, String> hm = new TreeMap<Integer, String>();
         
+        // Blank line for readability
         System.out.println("");
 
+        // Adds a new key-value pair to the TreeMap using the format (i, "a"*i)
         hm.put(1, "a");
         hm.put(2, "aa");
         hm.put(3, "aaa");
@@ -25,7 +27,7 @@ public class test2 {
         hm.put(10, "aaaaaaaaaa");
         hm.put(11, "aaaaaaaaaaa");
     
-        String hm1 = hm.get(hm.size()); 
+        String hm1 =  hm.get(hm.size());
 
         for (int i = 1; i <= hm.size(); i++) {
             if (i == 1) {
