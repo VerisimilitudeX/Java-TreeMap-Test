@@ -7,10 +7,11 @@ public class test2 {
     // Everything runs in main
     public static void main(String[] args) {
 
-        // Creates a new TreeMap
+        // Creates two new TreeMaps
         // TreeMaps are ordered unlike HashMaps but require more system resources
         TreeMap<Integer, String> hm = new TreeMap<Integer, String>();
-        
+        TreeMap<Integer, String> copiedhm = new TreeMap<Integer, String>();
+
         // Blank line for readability
         System.out.println("");
 
@@ -26,32 +27,29 @@ public class test2 {
         hm.put(9, "aaaaaaaaa");
         hm.put(10, "aaaaaaaaaa");
         hm.put(11, "aaaaaaaaaaa");
-    
-        // Stores the value at the largest key in the TreeMap so that it can be used later before the value in key 1 overwrites it
-        String hm1 =  hm.get(hm.size());
-        
+            
         // For range loop that goes from 1 to the size of the TreeMap 
         for (int i = 1; i <= hm.size(); i++) {
             
             // If the i is 1, it moves the value at key 1 to key i and moves the value at key 2 to key i+1
             if (i == 1) {
-                hm.put(hm.size(), hm.get(1));
-                hm.put(i, hm.get(i + 1));
+                copiedhm.put(hm.size(), hm.get(1));
+                copiedhm.put(i, hm.get(i + 1));
             }
 
             // Moves the value at key 10 to key 9 using the cached variable stored earlier
             else if (i == hm.size()) {
-                hm.put(i - 1, hm1);
+                copiedhm.put(i - 1, hm.get(hm.size()));
             }
 
             // For all other values, it moves the value at key i+1 to key i
             else {
-                hm.put(i, hm.get(i + 1));
+                copiedhm.put(i, hm.get(i + 1));
             }
         }
-        // Prints the values in the TreeMap
-        for (int key : hm.keySet()) {
-            System.out.println(hm.get(key));
+        // Creates a new TreeMap
+        for (int key : copiedhm.keySet()) {
+            System.out.println(copiedhm.get(key));
         }
     }
 }
